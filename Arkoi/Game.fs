@@ -17,5 +17,14 @@ module Game =
             | System.ConsoleKey.LeftArrow ->    Face(Left)
             | System.ConsoleKey.X ->            Attack
             | System.ConsoleKey.E ->            Interact
-            | System.ConsoleKey.Escape ->       Exit
             | _ -> getInput() // If user pressed a key we don't want to handle, ask for input again
+
+    let rec stepGame state =
+        //Graphics.render state
+        match getInput() with
+        | Move direction -> state |> stepGame
+        | Face direction -> state |> stepGame
+        | Attack -> state |> stepGame
+        | Interact -> state |> stepGame
+        | Exit -> ()
+        

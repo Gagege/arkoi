@@ -20,7 +20,7 @@ module Types =
         image : char;
     }
 
-    type World = {
+    type State = {
         tiles : MapTile list
         protagonist : Protagonist
     }
