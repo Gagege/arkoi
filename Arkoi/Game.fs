@@ -37,9 +37,12 @@ module Game =
             {mover with position = newCoordinates}
         else
             match tileAtCoordinate.image with
-            | '#' -> mover
-            | '+' -> mover
+            | '#' -> mover // wall
+            | '+' -> mover // door
             | _   -> {mover with position = newCoordinates}
+
+    let face mover direction =
+        {mover with facing = direction}
 
     let rec stepGame state =
         Graphics.render state
@@ -47,7 +50,7 @@ module Game =
         let newState = 
             match getInput() with
             | Move direction -> {state with protagonist = {state.protagonist with mover = (move state.protagonist.mover direction state.tiles)}}
-            | Face direction -> state
+            | Face direction -> {state with protagonist = {state.protagonist with mover = (face state.protagonist.mover direction)}}
             | Attack -> state
             | Interact -> state
             | Exit -> quitting <- true; state

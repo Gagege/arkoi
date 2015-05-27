@@ -13,15 +13,24 @@ module Types =
     type MoverLevel =
     | Air
     | Ground
+    | Water
 
     type Mover = {
         position : Coordinate;
         facing : Direction;
-        level : MoverLevel
+        level : MoverLevel;
+    }
+
+    type FacingImage = {
+        up : char;
+        down : char;
+        left : char;
+        right : char
     }
 
     type Protagonist = {
         mover : Mover
+        image : FacingImage
     }
 
     type MapTile = {
