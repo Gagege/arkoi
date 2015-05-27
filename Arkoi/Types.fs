@@ -22,7 +22,7 @@ module Types =
 
     type World = {
         tiles : MapTile list
-        hero : Protagonist
+        protagonist : Protagonist
     }
 
     type Input = 
