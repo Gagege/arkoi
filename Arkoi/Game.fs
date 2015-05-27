@@ -23,10 +23,16 @@ module Game =
 
     let rec stepGame state =
         Graphics.render state
-        match getInput() with
-        | Move direction -> state |> stepGame
-        | Face direction -> state |> stepGame
-        | Attack -> state |> stepGame
-        | Interact -> state |> stepGame
-        | Exit -> ()
+        let mutable quitting = false
+        let newState = 
+            match getInput() with
+            | Move direction -> state
+            | Face direction -> state
+            | Attack -> state
+            | Interact -> state
+            | Exit -> quitting <- true; state
+
+        if quitting 
+        then newState 
+        else stepGame newState
         

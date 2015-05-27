@@ -1,4 +1,5 @@
-﻿open Arkoi.Game
+﻿open System
+open Arkoi.Game
 open Arkoi.Types
 
 let map1 = [ 
@@ -26,6 +27,9 @@ let generateCoordinates =
 
 [<EntryPoint>]
 let main argv = 
-    let state = {tiles = generateCoordinates; protagonist = { position = (2,2); facing = Right }}
-    stepGame state
+    let state = {tiles = generateCoordinates; protagonist = { position = (2,2); facing = Right };}
+    let newState = stepGame state
+    Console.Clear()
+    printf "%A" newState.protagonist
+    Console.ReadKey(true) |> ignore
     0 // return an integer exit code
