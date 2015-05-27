@@ -1,22 +1,23 @@
 ﻿namespace Arkoi
-    
+   
+open System
 open Types
 
 module Game =
 
     let rec getInput() = 
-        let input = System.Console.ReadKey(true) 
+        let input = Console.ReadKey(true) 
         match input.Key with
-            | System.ConsoleKey.W ->            Move(Up)
-            | System.ConsoleKey.D ->            Move(Right)
-            | System.ConsoleKey.S ->            Move(Down)
-            | System.ConsoleKey.A ->            Move(Left)
-            | System.ConsoleKey.UpArrow ->      Face(Up)
-            | System.ConsoleKey.RightArrow ->   Face(Right)
-            | System.ConsoleKey.DownArrow ->    Face(Down)
-            | System.ConsoleKey.LeftArrow ->    Face(Left)
-            | System.ConsoleKey.X ->            Attack
-            | System.ConsoleKey.E ->            Interact
+            | ConsoleKey.W ->            Move(Up)
+            | ConsoleKey.D ->            Move(Right)
+            | ConsoleKey.S ->            Move(Down)
+            | ConsoleKey.A ->            Move(Left)
+            | ConsoleKey.UpArrow ->      Face(Up)
+            | ConsoleKey.RightArrow ->   Face(Right)
+            | ConsoleKey.DownArrow ->    Face(Down)
+            | ConsoleKey.LeftArrow ->    Face(Left)
+            | ConsoleKey.X ->            Attack
+            | ConsoleKey.E ->            Interact
             | _ -> getInput() // If user pressed a key we don't want to handle, ask for input again
 
     let rec stepGame state =
