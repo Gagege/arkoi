@@ -10,7 +10,7 @@ module Types =
         | Left
         | Right
 
-    type Protagonist = {
+    type Mover = {
         position : Coordinate;
         facing : Direction;
     }
@@ -22,7 +22,7 @@ module Types =
 
     type State = {
         tiles : MapTile list
-        protagonist : Protagonist
+        protagonist : Mover
     }
 
     type Input = 
