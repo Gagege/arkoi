@@ -1,8 +1,8 @@
 ﻿namespace Arkoi
+    
+open Types
 
 module Game =
-    
-    open Types
 
     let rec getInput() = 
         let input = System.Console.ReadKey(true) 
