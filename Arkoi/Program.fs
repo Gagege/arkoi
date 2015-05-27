@@ -26,6 +26,6 @@ let generateCoordinates =
 
 [<EntryPoint>]
 let main argv = 
-    let state = {tiles = generateCoordinates; protagonist = { position = (4,4); facing = Right }}
+    let state = {tiles = generateCoordinates; protagonist = { position = (2,2); facing = Right }}
     stepGame state
     0 // return an integer exit code

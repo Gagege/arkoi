@@ -22,8 +22,7 @@ module Game =
             | _ -> getInput() // If user pressed a key we don't want to handle, ask for input again
 
     let rec stepGame state =
-        printfn "%A" state
-        //Graphics.render state
+        Graphics.render state
         match getInput() with
         | Move direction -> state |> stepGame
         | Face direction -> state |> stepGame
