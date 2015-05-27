@@ -4,7 +4,7 @@ open Types
 
 module Game =
 
-    let rec getInput() = 
+    let rec waitForInput() = 
         let input = System.Console.ReadKey(true) 
         match input.Key with
             | System.ConsoleKey.W ->            Move(Up)
@@ -18,4 +18,4 @@ module Game =
             | System.ConsoleKey.X ->            Attack
             | System.ConsoleKey.E ->            Interact
             | System.ConsoleKey.Escape ->       Exit
-            | _ -> getInput()
+            | _ -> waitForInput() // If user pressed a key we don't want to handle, ask for input again
