@@ -31,14 +31,22 @@ module Game =
 
     let move mover direction tiles =
         let newCoordinates = calculateNewCoordinates mover.position direction
-        {mover with position = newCoordinates}
+        let tileAtCoordinate = List.find (Utils.findTile newCoordinates) tiles
+        if mover.level = Air
+        then 
+            {mover with position = newCoordinates}
+        else
+            match tileAtCoordinate.image with
+            | '#' -> mover
+            | '+' -> mover
+            | _   -> {mover with position = newCoordinates}
 
     let rec stepGame state =
         Graphics.render state
         let mutable quitting = false
         let newState = 
             match getInput() with
-            | Move direction -> {state with protagonist = (move state.protagonist direction state.tiles)}
+            | Move direction -> {state with protagonist = {state.protagonist with mover = (move state.protagonist.mover direction state.tiles)}}
             | Face direction -> state
             | Attack -> state
             | Interact -> state

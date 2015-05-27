@@ -27,7 +27,7 @@ let generateCoordinates =
 
 [<EntryPoint>]
 let main argv = 
-    let state = {tiles = generateCoordinates; protagonist = { position = (2,2); facing = Right };}
+    let state = {tiles = generateCoordinates; protagonist = { mover = {position = (2,2); facing = Right; level = Air} } }
     let newState = stepGame state
     Console.Clear()
     printf "%A" newState.protagonist

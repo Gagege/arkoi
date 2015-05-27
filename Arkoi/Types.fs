@@ -10,9 +10,18 @@ module Types =
         | Left
         | Right
 
+    type MoverLevel =
+    | Air
+    | Ground
+
     type Mover = {
         position : Coordinate;
         facing : Direction;
+        level : MoverLevel
+    }
+
+    type Protagonist = {
+        mover : Mover
     }
 
     type MapTile = {
@@ -22,7 +31,7 @@ module Types =
 
     type State = {
         tiles : MapTile list
-        protagonist : Mover
+        protagonist : Protagonist
     }
 
     type Input = 

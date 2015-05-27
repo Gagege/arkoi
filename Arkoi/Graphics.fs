@@ -13,7 +13,7 @@ module Graphics =
         List.map renderTile
 
     let renderProtagonist protagonist =
-        Console.SetCursorPosition(protagonist.position)
+        Console.SetCursorPosition(protagonist.mover.position)
         Console.Write '@'
 
     let render state =
