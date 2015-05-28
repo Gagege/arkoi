@@ -9,16 +9,15 @@ module Game =
     let rec getInput() = 
         let input = Console.ReadKey(true) 
         match input.Key with
-            | ConsoleKey.W ->           Move(Up)
-            | ConsoleKey.S ->           Move(Down)
-            | ConsoleKey.D ->           Move(Right)
-            | ConsoleKey.A ->           Move(Left)
-            | ConsoleKey.UpArrow ->     Face(Up)
-            | ConsoleKey.DownArrow ->   Face(Down)
-            | ConsoleKey.RightArrow ->  Face(Right)
-            | ConsoleKey.LeftArrow ->   Face(Left)
+            | ConsoleKey.W ->           Face(Up)
+            | ConsoleKey.S ->           Face(Down)
+            | ConsoleKey.D ->           Face(Right)
+            | ConsoleKey.A ->           Face(Left)
+            | ConsoleKey.UpArrow ->     Move(Up)   
+            | ConsoleKey.DownArrow ->   Move(Down) 
+            | ConsoleKey.RightArrow ->  Move(Right)
+            | ConsoleKey.LeftArrow ->   Move(Left) 
             | ConsoleKey.X ->           Attack
-            | ConsoleKey.E ->           Interact
             | ConsoleKey.Escape ->      Exit
             | _ -> getInput() // If user pressed a key we don't want to handle, ask for input again
 
