@@ -50,8 +50,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Types.fs" />
-    <Compile Include="Graphics.fs" />
     <Compile Include="Utils.fs" />
+    <Compile Include="Graphics.fs" />
+    <Compile Include="Mover.fs" />
     <Compile Include="Game.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />

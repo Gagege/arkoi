@@ -2,6 +2,7 @@
    
 open System
 open Types
+open Mover
 
 module Game =
 
@@ -20,29 +21,6 @@ module Game =
             | ConsoleKey.E ->           Interact
             | ConsoleKey.Escape ->      Exit
             | _ -> getInput() // If user pressed a key we don't want to handle, ask for input again
-
-    let calculateNewCoordinates currentCoordinates direction =
-        let x, y = currentCoordinates
-        match direction with
-        | Up ->     (x, y - 1)
-        | Down ->   (x, y + 1)
-        | Right ->  (x + 1, y)
-        | Left ->   (x - 1, y)
-
-    let move mover direction tiles =
-        let newCoordinates = calculateNewCoordinates mover.position direction
-        let tileAtCoordinate = List.find (Utils.findTile newCoordinates) tiles
-        if mover.level = Air
-        then 
-            {mover with position = newCoordinates}
-        else
-            match tileAtCoordinate.image with
-            | '#' -> mover // wall
-            | '+' -> mover // door
-            | _   -> {mover with position = newCoordinates}
-
-    let face mover direction =
-        {mover with facing = direction}
 
     let rec stepGame state =
         Graphics.render state

@@ -5,10 +5,10 @@ module Types =
     type Coordinate = int * int
 
     type Direction =
-        | Up 
-        | Down
-        | Left
-        | Right
+    | Up 
+    | Down
+    | Left
+    | Right
 
     type MoverLevel =
     | Air
@@ -44,8 +44,8 @@ module Types =
     }
 
     type Input = 
-        | Move of Direction
-        | Face of Direction
-        | Attack
-        | Interact
-        | Exit
+    | Move of Direction
+    | Face of Direction
+    | Attack
+    | Interact
+    | Exit
