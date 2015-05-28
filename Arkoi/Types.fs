@@ -45,7 +45,6 @@ module Types =
 
     type Input = 
     | Move of Direction
-    | Face of Direction
+    | FaceOrInteract of Direction
     | Attack
-    | Interact
     | Exit
