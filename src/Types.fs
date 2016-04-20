@@ -11,9 +11,9 @@ module Types =
         | Right
 
     type MoverLevel =
-    | Air
-    | Ground
-    | Water
+        | Air
+        | Ground
+        | Water
 
     type Mover = {
         position : Coordinate;
@@ -21,16 +21,9 @@ module Types =
         level : MoverLevel;
     }
 
-    type FacingImage = {
-        up : char;
-        down : char;
-        left : char;
-        right : char
-    }
-
     type Protagonist = {
         mover : Mover
-        image : FacingImage
+        image : char
     }
 
     type MapTile = {
@@ -45,7 +38,6 @@ module Types =
 
     type Input = 
         | Move of Direction
-        | Face of Direction
         | Attack
         | Interact
         | Exit

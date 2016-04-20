@@ -14,12 +14,7 @@ module Graphics =
 
     let renderProtagonist protagonist =
         Console.SetCursorPosition(protagonist.mover.position)
-        let image = match protagonist.mover.facing with
-                    | Up -> protagonist.image.up
-                    | Down -> protagonist.image.down
-                    | Left -> protagonist.image.left
-                    | Right -> protagonist.image.right
-        Console.Write image
+        Console.Write protagonist.image
 
     let render state =
         Console.Clear()

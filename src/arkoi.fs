@@ -42,7 +42,7 @@ module Main =
             protagonist = 
             { 
                 mover = {position = (2,2); facing = Down; level = Ground};
-                image = {up = '^'; down = 'v'; left = '<'; right = '>'};
+                image = '@';
             }
         }
         let newState = stepGame state
